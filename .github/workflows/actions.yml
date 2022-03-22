@@ -22,7 +22,7 @@ jobs:
     steps:
       - name: Log Github Object
         run: echo "${{ github }}"
-      - name: List Files
+      - name: List Filess
         run: |
           pwd
           ls -a
