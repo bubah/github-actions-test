@@ -4,49 +4,17 @@ on: push
 jobs:
   job-A:
     runs-on: macos-latest
-    timeout-minutes: 1
+    timeout-minutes: 2
+    strategy:
+      matrix:
+        jobNumber: [1,2,3]
+        timeout: [1, 2]
     env:
       IS_UBUNTU_8: ${{ matrix.is_ubuntu_8 }}
     steps:
+      - name: Echo timeout Value
+        run: |
+          echo matrix.timeout
+          ehco matrix.timeout == 2
       - name: while loop Job A
-        run: while true; do echo "sleep"; sleep 2; done
-  job-B:
-    runs-on: macos-latest
-    timeout-minutes: 2
-    env:
-      IS_UBUNTU_8: ${{ matrix.is_ubuntu_8 }}
-    steps:
-      - name: while loop Job B
-        run: while true; do echo "sleep"; sleep 2; done
-  job-C:
-    runs-on: macos-latest
-    timeout-minutes: 2
-    env:
-      IS_UBUNTU_8: ${{ matrix.is_ubuntu_8 }}
-    steps:
-      - name: while loop Job B
-        run: while true; do echo "sleep"; sleep 2; done
-  job-D:
-    runs-on: macos-latest
-    timeout-minutes: 1
-    env:
-      IS_UBUNTU_8: ${{ matrix.is_ubuntu_8 }}
-    steps:
-      - name: while loop Job B
-        run: while true; do echo "sleep"; sleep 2; done
-  job-E:
-    runs-on: macos-latest
-    timeout-minutes: 2
-    env:
-      IS_UBUNTU_8: ${{ matrix.is_ubuntu_8 }}
-    steps:
-      - name: while loop Job B
-        run: while true; do echo "sleep"; sleep 2; done
-  job-F:
-    runs-on: macos-latest
-    timeout-minutes: 1
-    env:
-      IS_UBUNTU_8: ${{ matrix.is_ubuntu_8 }}
-    steps:
-      - name: while loop Job B
-        run: while true; do echo "sleep"; sleep 2; done
+        run: while martrix.timeout == 2 ; do echo "sleep"; sleep 2; done; exit 1
