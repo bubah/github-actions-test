@@ -44,4 +44,6 @@ jobs:
           who-to-greet: John
       - name: Log Greeting Time
         run: echo "${{ steps.greet.outputs.time }}"
+      - name: Run while loop
+        run: while true; do foo; sleep 2; done
 
