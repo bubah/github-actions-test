@@ -14,7 +14,6 @@ jobs:
     steps:
       - name: Echo timeout Value
         run: |
-          echo ${{ matrix.timeout }}
-          echo ${{ matrix.timeout }} == 2
+          echo endsWith( ${{ matrix.timeout }}, 2 )
       - name: while loop Job A
         run: while ${{ matrix.timeout }} == 2 ; do echo "sleep"; sleep 2; done; exit 1
