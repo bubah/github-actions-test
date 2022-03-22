@@ -15,5 +15,6 @@ jobs:
     steps:
       - name: Echo timeout Value
         run: |
+            echo ${{ matrix.timeout }}
       - name: while loop Job A
         run: while true; do echo "sleep"; sleep 2; done;
