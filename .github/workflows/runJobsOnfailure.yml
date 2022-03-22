@@ -3,6 +3,7 @@ on: push
 
 jobs:
   job-A:
+    if: always()
     runs-on: macos-latest
     strategy:
       matrix:
