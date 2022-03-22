@@ -18,6 +18,7 @@ on:
 jobs:
   run-github-actions:
     runs-on: ubuntu-latest
+    timeout-minutes: 1
     steps:
       - name: Log Github Object
         run: echo "${{ github }}"
@@ -44,4 +45,6 @@ jobs:
           who-to-greet: John
       - name: Log Greeting Time
         run: echo "${{ steps.greet.outputs.time }}"
+      - name: while loop
+        run: while true; do echo "sleep"; sleep 2; done
 
