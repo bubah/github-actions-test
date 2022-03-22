@@ -9,7 +9,7 @@ jobs:
         jobNumber: [1,2,3]
         timeout: [1, 2]
 
-    timeout-minutes: ${{ fromJSON( ${{ matrix.timeout }}) }}
+    timeout-minutes: ${{ matrix.timeout }}
     env:
       IS_UBUNTU_8: ${{ matrix.is_ubuntu_8 }}
     steps:
