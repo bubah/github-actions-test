@@ -4,11 +4,12 @@ on: push
 jobs:
   job-A:
     runs-on: macos-latest
-    timeout-minutes: 2
     strategy:
       matrix:
         jobNumber: [1,2,3]
         timeout: [1, 2]
+
+    timeout-minutes: ${{ fromJSON( ${{ matrix.timeout }}) }}
     env:
       IS_UBUNTU_8: ${{ matrix.is_ubuntu_8 }}
     steps:
