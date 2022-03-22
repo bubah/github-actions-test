@@ -1,0 +1,20 @@
+name: Continue to Run concurrent Jobs
+on: push
+
+jobs:
+  job-A:
+    runs-on: macos-latest
+    timeout-minutes: 1
+    env:
+      IS_UBUNTU_8: ${{ matrix.is_ubuntu_8 }}
+    steps:
+      - name: while loop Job A
+        run: while true; do echo "sleep"; sleep 2; done
+  job-B:
+    runs-on: macos-latest
+    timeout-minutes: 2
+    env:
+      IS_UBUNTU_8: ${{ matrix.is_ubuntu_8 }}
+    steps:
+      - name: while loop Job B
+        run: while true; do echo "sleep"; sleep 2; done
