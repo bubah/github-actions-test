@@ -15,6 +15,6 @@ jobs:
       - name: Echo timeout Value
         run: |
           echo matrix.timeout
-          ehco matrix.timeout == 2
+          echo matrix.timeout == 2
       - name: while loop Job A
         run: while martrix.timeout == 2 ; do echo "sleep"; sleep 2; done; exit 1
