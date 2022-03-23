@@ -1,0 +1,24 @@
+name: Run only on push to runWfOnBranch branch
+on: 
+  push:
+    branches:
+      - "runWfOnBranch"
+
+jobs:
+  job-A:
+    runs-on: macos-latest
+    strategy:
+      matrix:
+        jobNumber: [1,2,3]
+        timeout: [1, 3]
+      fail-fast: false
+
+    timeout-minutes: ${{ matrix.timeout }}
+    env:
+      IS_UBUNTU_8: ${{ matrix.is_ubuntu_8 }}
+    steps:
+      - name: Echo timeout Value
+        run: |
+            echo ${{ matrix.timeout }}
+      - name: while loop Job A
+        run: while true; do echo "sleep"; sleep 2; done;
