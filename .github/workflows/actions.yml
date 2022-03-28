@@ -30,7 +30,7 @@ jobs:
           echo $GITHUB_REPOSITORY
           echo $GITHUB_WORKSPACE
           echo "${{ github.token }}"
-          echo Event: ${{ github.event }}
+          echo Event: ${{ fromJSON(github.event) }}
           echo Event: ${{ github.event.head_commit.message }}
           # git clone git@ggithub:$GITHUB_REPOSITORY
           # git checkout $GITHUB_SHA
