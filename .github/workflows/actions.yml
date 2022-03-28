@@ -4,14 +4,14 @@ on:
   push:
     branches:
       - master
-      - "feature/*" # matches feature/featA, feature/featB, doesnt match feature/feat/a
-      - 'feature/**' # matches everything including feature/feat/a
-      - '!feature/featC' # branch is ignored even if matches patern above
-    tags:
-      - v1.*
-    paths:
-      - '**.js'
-      - '!filename.js'
+      # - "feature/*" # matches feature/featA, feature/featB, doesnt match feature/feat/a
+      # - 'feature/**' # matches everything including feature/feat/a
+      # - '!feature/featC' # branch is ignored even if matches patern above
+    # tags:
+    #   - v1.*
+    # paths:
+    #   - '**.js'
+    #   - '!filename.js'
   pull_request:
     types: [closed, assigned, opened, reopened]
 
@@ -31,6 +31,7 @@ jobs:
           echo $GITHUB_WORKSPACE
           echo "${{ github.token }}"
           echo Event: ${{ github.event }}
+          echo Event: ${{ github.event.head_commit.message }}
           # git clone git@ggithub:$GITHUB_REPOSITORY
           # git checkout $GITHUB_SHA
       - name: Checkout
