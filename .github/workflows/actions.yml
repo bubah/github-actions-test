@@ -26,12 +26,13 @@ jobs:
         run: |
           pwd
           ls -a
+          echo "$GITHUB_CONTEXT"
           echo $GITHUB_SHA
           echo $GITHUB_REPOSITORY
           echo $GITHUB_WORKSPACE
           echo "${{ github.token }}"
-          echo Event: ${{ fromJSON(github.event) }}
-          echo Event: ${{ github.event.head_commit.message }}
+          echo Event: "${{ toJSON(github.event.head_commit) }}"
+          echo Event JSON: "${{toJSON(github.event)}}"
           # git clone git@ggithub:$GITHUB_REPOSITORY
           # git checkout $GITHUB_SHA
       - name: Checkout
